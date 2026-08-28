@@ -212,6 +212,22 @@
     border-bottom: 1px solid var(--line);
   }
   .hero .eyebrow{ margin-bottom: 22px; }
+
+  .hero-byline{
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 22px;
+  }
+  .hero-byline .eyebrow{ margin-bottom: 0; }
+  .headshot{
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid var(--line);
+    flex-shrink: 0;
+  }
   .hero h1{
     font-size: clamp(2.1rem, 4.6vw, 3.4rem);
     line-height: 1.08;
@@ -601,7 +617,10 @@
   <!-- HERO -->
   <header class="hero">
     <div class="wrap">
-      <span class="eyebrow">Partnership &amp; Data Partner Manager</span>
+      <div class="hero-byline">
+        <img src="kellee-headshot.jpg" alt="Kellee Massey-Ruhlman" class="headshot">
+        <span class="eyebrow">Partnership &amp; Data Partner Manager</span>
+      </div>
       <h1>From signed contract to live data in under 48 hours.</h1>
       <p class="lede">I run external data and technology partnerships end to end — selection, onboarding, technical delivery, renewal — as the sole owner of the relationship. Most recently at the Center for Tech and Civic Life, I onboarded 6 partner organizations, renewed 4 more, and built the process and dashboards that made data availability visible to everyone involved.</p>
 
@@ -909,7 +928,7 @@
     <div class="contact-chips">
       <a class="chip" href="mailto:kdmassey2@gmail.com">kdmassey2@gmail.com</a>
       <a class="chip" href="tel:+66917036738">+66 91 703 6738</a>
-     <a class="chip" href="https://www.linkedin.com/in/kellee-massey/" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="chip" href="https://www.linkedin.com/in/kellee-massey/" target="_blank" rel="noopener">LinkedIn</a>
     </div>
 
     <div class="foot-line">
