@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kellee Massey-Ruhlman — Partnership & Data Partner Manager</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper: #FAFAF8;
+    --paper-dim: #F2F3EF;
+    --ink: #14171C;
+    --ink-soft: #52584F;
+    --line: #DFE2DA;
+    --accent: #1F6F5C;
+    --accent-ink: #12463A;
+    --accent-soft: #E7F0EC;
+    --muted: #8A8F86;
+    --amber: #A8763B;
+    --font-display: 'Space Grotesk', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    --font-mono: 'IBM Plex Mono', monospace;
+    --max: 1080px;
+
+    /* fixed tokens for the contact band — stays dark in both themes */
+    --contact-bg: #14171C;
+    --contact-ink: #F4F5F1;
+    --contact-muted: #C7CBC3;
+    --contact-line: #2A2F28;
+    --contact-line-soft: #3A3F38;
+    --contact-accent: #8FD9C2;
+    --contact-foot: #7C8177;
+  }
+
+  html[data-theme="dark"]{
+    --paper: #14171C;
+    --paper-dim: #1B1F1A;
+    --ink: #F4F5F1;
+    --ink-soft: #B7BBB1;
+    --line: #2B2F28;
+    --accent: #4FBE9E;
+    --accent-ink: #8FD9C2;
+    --accent-soft: rgba(79, 190, 158, 0.14);
+    --muted: #767B70;
+    --amber: #D2A06B;
+  }
+
+  *{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior: auto; }
+    *{ animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+  }
+
+  body, .site-nav, .hero, section, .featured-role, .note-card, .skill-card,
+  .stat, .log-row, .tool-tag, .case-toggle, .case-study{
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+  }
+
+  body{
+    margin:0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection{ background: var(--accent); color: var(--paper); }
+
+  a{ color: inherit; }
+
+  :focus-visible{
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+  }
+
+  .wrap{
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 0 28px;
+  }
+
+  .eyebrow{
+    font-family: var(--font-mono);
+    font-size: 12.5px;
+    letter-spacing: 0.11em;
+    text-transform: uppercase;
+    color: var(--accent-ink);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .eyebrow::before{
+    content: '';
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--accent);
+    display: inline-block;
+  }
+
+  h1, h2, h3{
+    font-family: var(--font-display);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    margin: 0;
+    color: var(--ink);
+  }
+
+  p{ margin: 0; }
+
+  /* ---------- NAV ---------- */
+  .site-nav{
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(250, 250, 248, 0.88);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+  }
+  .site-nav .wrap{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+  }
+  .mark{
+    font-family: var(--font-mono);
+    font-weight: 500;
+    font-size: 15px;
+    letter-spacing: 0.04em;
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+    text-decoration: none;
+  }
+  .mark span{ color: var(--accent); }
+
+  .nav-links{
+    display: flex;
+    gap: 30px;
+    list-style: none;
+    margin: 0; padding: 0;
+    font-size: 14.5px;
+  }
+  .nav-links a{
+    text-decoration: none;
+    color: var(--ink-soft);
+    position: relative;
+    padding: 4px 0;
+  }
+  .nav-links a:hover{ color: var(--ink); }
+  .nav-links a::after{
+    content:'';
+    position:absolute; left:0; right:0; bottom:-2px;
+    height: 1.5px; background: var(--accent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.2s ease;
+  }
+  .nav-links a:hover::after{ transform: scaleX(1); }
+
+  .nav-toggle{
+    display: none;
+    background: none;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 8px 10px;
+    cursor: pointer;
+  }
+  .nav-toggle span, .nav-toggle span::before, .nav-toggle span::after{
+    content:'';
+    display:block;
+    width: 18px; height: 1.5px;
+    background: var(--ink);
+    position: relative;
+  }
+  .nav-toggle span::before{ position:absolute; top:-6px; }
+  .nav-toggle span::after{ position:absolute; top:6px; }
+
+  .nav-right{
+    display: flex;
+    align-items: center;
+    gap: 18px;
+  }
+
+  .theme-toggle{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px; height: 36px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: none;
+    cursor: pointer;
+    color: var(--ink-soft);
+    flex-shrink: 0;
+  }
+  .theme-toggle:hover{ border-color: var(--accent); color: var(--accent-ink); }
+  .theme-toggle svg{ width: 16px; height: 16px; }
+  .theme-toggle .icon-moon{ display: none; }
+  html[data-theme="dark"] .theme-toggle .icon-sun{ display: none; }
+  html[data-theme="dark"] .theme-toggle .icon-moon{ display: block; }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    padding: 96px 0 64px;
+    border-bottom: 1px solid var(--line);
+  }
+  .hero .eyebrow{ margin-bottom: 22px; }
+  .hero h1{
+    font-size: clamp(2.1rem, 4.6vw, 3.4rem);
+    line-height: 1.08;
+    max-width: 15ch;
+  }
+  .hero .lede{
+    margin-top: 26px;
+    max-width: 56ch;
+    font-size: 17px;
+    color: var(--ink-soft);
+  }
+
+  .stat-row{
+    margin-top: 44px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border-top: 1px solid var(--line);
+    border-left: 1px solid var(--line);
+  }
+  .stat{
+    border-right: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    padding: 18px 16px;
+  }
+  .stat .num{
+    font-family: var(--font-mono);
+    font-size: clamp(1.3rem, 2.4vw, 1.7rem);
+    color: var(--accent-ink);
+    display:block;
+  }
+  .stat .label{
+    font-size: 12.5px;
+    color: var(--muted);
+    margin-top: 4px;
+    display:block;
+  }
+
+  .hero-cta{
+    margin-top: 40px;
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+  .btn{
+    font-family: var(--font-body);
+    font-size: 14.5px;
+    font-weight: 500;
+    padding: 12px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: transform 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+  }
+  .btn-primary{ background: var(--ink); color: var(--paper); }
+  .btn-primary:hover{ background: var(--accent-ink); transform: translateY(-1px); }
+  .btn-ghost{ border-color: var(--line); color: var(--ink); }
+  .btn-ghost:hover{ border-color: var(--ink); }
+
+  /* ---------- SECTION HEADER ---------- */
+  section{ padding: 84px 0; border-bottom: 1px solid var(--line); }
+  .sec-head{ max-width: 62ch; margin-bottom: 52px; }
+  .sec-head h2{ font-size: clamp(1.5rem, 2.8vw, 2rem); margin-top: 14px; }
+  .sec-head p{ margin-top: 14px; color: var(--ink-soft); }
+
+  .reveal{ opacity: 0; transform: translateY(16px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .reveal.is-visible{ opacity: 1; transform: none; }
+
+  /* ---------- PIPELINE (signature) ---------- */
+  .pipeline{ background: var(--paper-dim); }
+  .rail{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0;
+    position: relative;
+    margin-top: 12px;
+  }
+  .rail::before{
+    content:'';
+    position:absolute;
+    top: 9px; left: 4.5%; right: 4.5%;
+    height: 1.5px;
+    background: repeating-linear-gradient(to right, var(--muted) 0 6px, transparent 6px 12px);
+  }
+  .node{ position: relative; padding-right: 18px; }
+  .node .dot{
+    width: 18px; height: 18px; border-radius: 50%;
+    background: var(--paper-dim);
+    border: 2px solid var(--muted);
+    position: relative; z-index: 2;
+  }
+  .node.is-live .dot{ border-color: var(--accent); background: var(--accent); }
+  .node .tag{
+    display:inline-block;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--accent-ink);
+    background: var(--accent-soft);
+    padding: 2px 7px;
+    border-radius: 4px;
+    margin-top: 12px;
+  }
+  .node h3{
+    font-size: 15.5px;
+    margin-top: 12px;
+    font-weight: 600;
+  }
+  .node p{
+    font-size: 13.5px;
+    color: var(--ink-soft);
+    margin-top: 8px;
+  }
+
+  .pipeline-notes{
+    margin-top: 56px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+  .note-card{
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 24px;
+  }
+  .note-card .eyebrow{ font-size: 11.5px; margin-bottom: 10px; }
+  .note-card p{ color: var(--ink-soft); font-size: 14.5px; }
+
+  .case-toggle-row{ margin-top: 44px; display: flex; justify-content: center; }
+  .case-toggle{
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    font-family: var(--font-mono);
+    font-size: 13px;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 11px 20px;
+    cursor: pointer;
+    color: var(--ink);
+  }
+  .case-toggle:hover{ border-color: var(--accent); color: var(--accent-ink); }
+  .case-toggle svg{ transition: transform 0.2s ease; flex-shrink: 0; }
+  .case-toggle[aria-expanded="true"] svg{ transform: rotate(180deg); }
+
+  .case-study{
+    margin-top: 48px;
+    padding-top: 44px;
+    border-top: 1px solid var(--line);
+  }
+  .case-diagram{ margin-bottom: 48px; display: flex; justify-content: center; }
+  .duration-chart{ width: 100%; max-width: 560px; height: auto; display: block; }
+  .chart-label{ font-family: var(--font-mono); font-size: 12px; fill: var(--muted); }
+  .chart-value{ font-family: var(--font-mono); font-size: 12px; fill: var(--ink-soft); }
+  .bar-before{ fill: var(--muted); }
+  .bar-after{ fill: var(--accent); }
+
+  .case-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 34px 44px;
+  }
+  .case-num{
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--accent-ink);
+    margin-bottom: 11px;
+  }
+  .case-block p{ font-size: 14.5px; color: var(--ink-soft); }
+
+  /* ---------- EXPERIENCE ---------- */
+  .featured-role{
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 32px;
+    margin-bottom: 20px;
+    background: var(--paper);
+  }
+  .role-org-row{
+    display:flex; justify-content: space-between; align-items: flex-start;
+    flex-wrap: wrap; gap: 10px;
+    margin-bottom: 22px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid var(--line);
+  }
+  .role-org-row h3{ font-size: 1.15rem; }
+  .role-org-row .org-meta{ font-size: 13.5px; color: var(--muted); margin-top: 4px; }
+  .featured-tag{
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--accent-ink);
+    background: var(--accent-soft);
+    padding: 3px 8px;
+    border-radius: 4px;
+    white-space: nowrap;
+    height: fit-content;
+  }
+
+  .sub-role{ margin-bottom: 26px; }
+  .sub-role:last-child{ margin-bottom: 0; }
+  .sub-role-head{
+    display:flex; justify-content: space-between; align-items: baseline;
+    flex-wrap: wrap; gap: 8px;
+    margin-bottom: 12px;
+  }
+  .sub-role-head .title{ font-weight: 600; font-size: 15px; }
+  .sub-role-head .status{
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--muted);
+  }
+  .sub-role-head .dates{ font-family: var(--font-mono); font-size: 12px; color: var(--muted); }
+
+  ul.bullets{ margin: 0; padding-left: 18px; }
+  ul.bullets li{ font-size: 14.5px; color: var(--ink-soft); margin-bottom: 8px; }
+  ul.bullets li::marker{ color: var(--accent); }
+
+  .log{ margin-top: 8px; }
+  .log-row{
+    display: grid;
+    grid-template-columns: 220px 1fr 130px;
+    gap: 20px;
+    padding: 18px 4px;
+    border-bottom: 1px solid var(--line);
+    align-items: baseline;
+  }
+  .log-row:first-child{ border-top: 1px solid var(--line); }
+  .log-role{ font-weight: 600; font-size: 14.5px; }
+  .log-org{ font-size: 13px; color: var(--muted); margin-top: 2px; }
+  .log-desc{ font-size: 14px; color: var(--ink-soft); }
+  .log-dates{ font-family: var(--font-mono); font-size: 12px; color: var(--muted); text-align: right; }
+  .log-dates .status{ display:block; margin-top: 4px; color: var(--accent-ink); }
+
+  /* ---------- SKILLS ---------- */
+  .skill-grid{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+  }
+  .skill-card{ background: var(--paper); padding: 26px; }
+  .skill-card .cat{
+    font-family: var(--font-mono);
+    font-size: 11.5px;
+    color: var(--accent-ink);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .skill-card ul{ margin: 14px 0 0; padding-left: 18px; }
+  .skill-card li{ font-size: 14px; color: var(--ink-soft); margin-bottom: 6px; }
+  .skill-card li::marker{ color: var(--muted); }
+
+  .tool-tags{
+    margin-top: 36px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .tool-tag{
+    font-family: var(--font-mono);
+    font-size: 12.5px;
+    padding: 6px 12px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    color: var(--ink-soft);
+  }
+
+  /* ---------- EDUCATION ---------- */
+  .edu-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+  }
+  .edu-grid h3{ font-size: 13px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); font-family: var(--font-mono); font-weight: 500; margin-bottom: 18px; }
+  .edu-item{ margin-bottom: 16px; }
+  .edu-item .deg{ font-weight: 600; font-size: 15px; }
+  .edu-item .school{ font-size: 13.5px; color: var(--ink-soft); margin-top: 2px; }
+  .cert-list{ list-style: none; margin: 0; padding: 0; }
+  .cert-list li{
+    font-size: 14.5px; color: var(--ink-soft);
+    padding: 10px 0; border-bottom: 1px solid var(--line);
+  }
+  .cert-list li:first-child{ padding-top: 0; }
+
+  /* ---------- CONTACT ---------- */
+  .contact{ border-bottom: none; background: var(--contact-bg); color: var(--contact-ink); }
+  .contact .eyebrow{ color: var(--contact-accent); }
+  .contact .eyebrow::before{ background: var(--contact-accent); }
+  .contact h2{ color: var(--contact-ink); font-size: clamp(1.7rem, 3.4vw, 2.4rem); margin-top: 16px; max-width: 18ch; }
+  .contact .lede{ color: var(--contact-muted); margin-top: 16px; max-width: 50ch; font-size: 16px; }
+
+  .contact-chips{
+    margin-top: 40px;
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+  .chip{
+    font-family: var(--font-mono);
+    font-size: 14px;
+    padding: 12px 18px;
+    border: 1px solid var(--contact-line-soft);
+    border-radius: 8px;
+    text-decoration: none;
+    color: var(--contact-ink);
+    transition: border-color 0.15s ease, background 0.15s ease;
+  }
+  .chip:hover{ border-color: var(--contact-accent); background: rgba(143,217,194,0.08); }
+  .chip.static{ cursor: default; }
+  .chip.static:hover{ border-color: var(--contact-line-soft); background: none; }
+
+  .foot-line{
+    margin-top: 64px;
+    padding-top: 24px;
+    border-top: 1px solid var(--contact-line);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+    font-size: 12.5px;
+    color: var(--contact-foot);
+    font-family: var(--font-mono);
+  }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width: 760px){
+    .nav-links{
+      position: absolute;
+      top: 64px; left: 0; right: 0;
+      background: var(--paper);
+      border-bottom: 1px solid var(--line);
+      flex-direction: column;
+      gap: 0;
+      display: none;
+      padding: 8px 28px 20px;
+    }
+    .nav-links.open{ display: flex; }
+    .nav-links a{ padding: 12px 0; display:block; }
+    .nav-toggle{ display: block; }
+
+    .stat-row{ grid-template-columns: repeat(2, 1fr); }
+    .rail{ grid-template-columns: 1fr; gap: 28px; }
+    .rail::before{ display: none; }
+    .node{ padding-left: 22px; border-left: 1.5px dashed var(--muted); padding-bottom: 4px; }
+    .node .dot{ position: absolute; left: -9.5px; top: 0; }
+    .pipeline-notes{ grid-template-columns: 1fr; }
+    .case-grid{ grid-template-columns: 1fr; }
+    .skill-grid{ grid-template-columns: 1fr; }
+    .edu-grid{ grid-template-columns: 1fr; gap: 32px; }
+    .log-row{ grid-template-columns: 1fr; gap: 6px; }
+    .log-dates{ text-align: left; }
+    .role-org-row{ flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="wrap">
+    <a href="#top" class="mark">KELLEE<span>·</span>MR</a>
+    <div class="nav-right">
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#pipeline">Process</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <button class="theme-toggle" id="themeToggle" aria-label="Switch to dark mode" aria-pressed="false">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.4M12 19.1v2.4M4.4 4.4l1.7 1.7M17.9 17.9l1.7 1.7M2.5 12h2.4M19.1 12h2.4M4.4 19.6l1.7-1.7M17.9 6.1l1.7-1.7"/></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a6.8 6.8 0 0 0 10.5 10.5Z"/></svg>
+      </button>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false"><span></span></button>
+    </div>
+  </div>
+</nav>
+
+<main id="top">
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="wrap">
+      <span class="eyebrow">Partnership &amp; Data Partner Manager</span>
+      <h1>From signed contract to live data in under 48 hours.</h1>
+      <p class="lede">I run external data and technology partnerships end to end — selection, onboarding, technical delivery, renewal — as the sole owner of the relationship. Most recently at the Center for Tech and Civic Life, I onboarded 6 partner organizations, renewed 4 more, and built the process and dashboards that made data availability visible to everyone involved.</p>
+
+      <div class="stat-row">
+        <div class="stat"><span class="num">6</span><span class="label">Partners onboarded</span></div>
+        <div class="stat"><span class="num">4</span><span class="label">Renewals managed</span></div>
+        <div class="stat"><span class="num">&lt;48h</span><span class="label">Contract to live access</span></div>
+        <div class="stat"><span class="num">6 yrs</span><span class="label">In partnership operations</span></div>
+      </div>
+
+      <div class="hero-cta">
+        <a href="#pipeline" class="btn btn-primary" id="heroCaseLink">Read the case study</a>
+        <a href="#contact" class="btn btn-ghost">Get in touch</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- SIGNATURE: PIPELINE -->
+  <section class="pipeline" id="pipeline">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="eyebrow">How a partner goes live</span>
+        <h2>The pipeline I built at CTCL</h2>
+        <p>New election-data partners used to take weeks to get from a signed contract to live access. I redesigned the process end to end, working directly with partners and internal engineering. Here's what it looks like now.</p>
+      </div>
+
+      <div class="rail reveal">
+        <div class="node">
+          <div class="dot"></div>
+          <h3>Selection &amp; Vetting</h3>
+          <p>Assess partner fit, data needs, and technical readiness before a contract is signed.</p>
+        </div>
+        <div class="node">
+          <div class="dot"></div>
+          <h3>Contract Signed</h3>
+          <p>Kick off the internal handoff between legal, engineering, and partnerships.</p>
+        </div>
+        <div class="node">
+          <div class="dot"></div>
+          <h3>Technical Onboarding</h3>
+          <p>Configure access, credentials, and delivery pipelines alongside engineering.</p>
+        </div>
+        <div class="node is-live">
+          <div class="dot"></div>
+          <span class="tag">&lt;48 HRS</span>
+          <h3>Live Data Access</h3>
+          <p>Partner is receiving live ballot and election data, tracked on a shared dashboard.</p>
+        </div>
+        <div class="node">
+          <div class="dot"></div>
+          <h3>Renewal &amp; Growth</h3>
+          <p>Structured interviews and health metrics inform renewal and expansion conversations.</p>
+        </div>
+      </div>
+
+      <div class="pipeline-notes reveal">
+        <div class="note-card">
+          <span class="eyebrow">Visibility</span>
+          <p>Built and maintained partner-facing dashboards tracking data availability, delays, and completeness — giving every stakeholder the same real-time picture, and increasing partner satisfaction along the way.</p>
+        </div>
+        <div class="note-card">
+          <span class="eyebrow">Retention</span>
+          <p>Ran structured interviews with key partners each renewal cycle, turning feedback into concrete changes that improved satisfaction and retention across the base.</p>
+        </div>
+      </div>
+
+      <div class="case-toggle-row reveal">
+        <button class="case-toggle" id="caseToggle" aria-expanded="false" aria-controls="caseStudy">
+          <span>Read the full case study</span>
+          <svg viewBox="0 0 16 16" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 6l4 4 4-4"/></svg>
+        </button>
+      </div>
+
+      <div class="case-study" id="caseStudy" hidden>
+        <div class="case-diagram">
+          <svg class="duration-chart" viewBox="0 0 600 150" role="img" aria-label="Onboarding time dropped from three to six weeks down to under 48 hours">
+            <text x="0" y="20" class="chart-label">BEFORE</text>
+            <rect x="0" y="30" width="520" height="18" rx="4" class="bar-before"></rect>
+            <text x="530" y="44" class="chart-value">3–6 wks</text>
+
+            <text x="0" y="94" class="chart-label">AFTER</text>
+            <rect x="0" y="104" width="24" height="18" rx="4" class="bar-after"></rect>
+            <text x="34" y="118" class="chart-value">&lt;48 hrs</text>
+          </svg>
+        </div>
+
+        <div class="case-grid">
+          <div class="case-block">
+            <span class="case-num">The problem</span>
+            <p>Before this process existed, a new partner could wait three to six weeks between a signed contract and their first live data pull. Handoffs between legal, engineering, and partnerships happened over scattered email threads with no single owner, so requests stalled while everyone assumed someone else was moving them forward.</p>
+          </div>
+          <div class="case-block">
+            <span class="case-num">What changed</span>
+            <p>I mapped every step a partner touched from signature to first delivery, then rebuilt it around one clear owner and a fixed checklist that engineering and partnerships could both see. Every new partner moved through the same five stages, with credential and pipeline setup starting the moment a contract was countersigned — not after.</p>
+          </div>
+          <div class="case-block">
+            <span class="case-num">How it was measured</span>
+            <p>I built partner-facing dashboards that tracked data availability, delays, and completeness in real time, so partners could see their own status instead of asking for updates. That same visibility let me catch internal bottlenecks before a partner had to flag them.</p>
+          </div>
+          <div class="case-block">
+            <span class="case-num">The result</span>
+            <p>Contract-to-live-access time dropped from multiple weeks to under 48 hours. Using that visibility and a structured interview process, I onboarded 6 new partner organizations and managed renewals for 4 existing partners, improving satisfaction and retention along the way.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="eyebrow">Experience log</span>
+        <h2>Where I've done this work</h2>
+        <p>Six years across nonprofit civic tech, freelance operations, and teaching — always at the point where partner relationships meet technical delivery.</p>
+      </div>
+
+      <div class="featured-role reveal">
+        <div class="role-org-row">
+          <div>
+            <h3>Center for Tech and Civic Life</h3>
+            <div class="org-meta">Chicago, IL (Remote) — ballot and election information data partnerships · Sep 2020 – Dec 2023</div>
+          </div>
+          <span class="featured-tag">FEATURED</span>
+        </div>
+
+        <div class="sub-role">
+          <div class="sub-role-head">
+            <span class="title">Partnership and Impact Manager</span>
+            <span class="dates">Jan 2023 – Dec 2023 <span class="status">· COMPLETE</span></span>
+          </div>
+          <ul class="bullets">
+            <li>Revamped and launched an end-to-end partner selection and onboarding process, cutting contract-to-live-access time to under 48 hours.</li>
+            <li>Onboarded 6 new partner organizations and managed year-over-year renewals for 4 existing partners as the sole individual contributor on partner relationships.</li>
+            <li>Conducted structured interviews with key partners, using the feedback to improve satisfaction and retention across the renewal base.</li>
+            <li>Coordinated with program and project managers on internal debriefs that fed directly into funder reports.</li>
+          </ul>
+        </div>
+
+        <div class="sub-role">
+          <div class="sub-role-head">
+            <span class="title">Technical Partnership Manager</span>
+            <span class="dates">Sep 2020 – Dec 2022 <span class="status">· COMPLETE</span></span>
+          </div>
+          <ul class="bullets">
+            <li>Built and maintained partner-facing dashboards tracking data availability, delays, and completeness.</li>
+            <li>Partnered with engineering and research teams to triage, debug, and resolve data delivery issues.</li>
+            <li>Ran a listening tour across partner organizations that led to a reorganization of team objectives the following year.</li>
+            <li>Built and grew the recruitment and collaboration pipeline for current and prospective data partners.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="log reveal">
+        <div class="log-row">
+          <div>
+            <div class="log-role">Part-Time Faculty, Design &amp; Technology</div>
+            <div class="log-org">The New School – Parsons School of Design</div>
+          </div>
+          <div class="log-desc">Teach project-based coursework on scoping, agile execution, and milestone planning; mentor 14–20 students per semester on delivery planning.</div>
+          <div class="log-dates">Jan 2023 – Present<span class="status">CURRENT</span></div>
+        </div>
+        <div class="log-row">
+          <div>
+            <div class="log-role">Data Analytics Extern</div>
+            <div class="log-org">Beats by Dre Project, Extern Inc.</div>
+          </div>
+          <div class="log-desc">Practiced client-facing success plans and workshops, and used SQL on survey, review, and social-listening data to produce summary reports.</div>
+          <div class="log-dates">Nov 2025 – Feb 2026</div>
+        </div>
+        <div class="log-row">
+          <div>
+            <div class="log-role">Chief of Staff (Freelance)</div>
+            <div class="log-org">Mentor Me Collective</div>
+          </div>
+          <div class="log-desc">Coordinated cross-functional projects and stakeholder communication, building tracking systems that improved delivery visibility.</div>
+          <div class="log-dates">Dec 2024 – Apr 2025</div>
+        </div>
+        <div class="log-row">
+          <div>
+            <div class="log-role">Project Management Track Lead (Volunteer)</div>
+            <div class="log-org">Grow With Google</div>
+          </div>
+          <div class="log-desc">Led the Project Management curriculum track for Google scholarship recipients, plus one-on-one mentorship.</div>
+          <div class="log-dates">Aug 2024 – Nov 2024</div>
+        </div>
+        <div class="log-row">
+          <div>
+            <div class="log-role">Research Resident</div>
+            <div class="log-org">NYU – Interactive Telecommunications Program</div>
+          </div>
+          <div class="log-desc">Built a SQL-based database system to speed up MVP prototyping for the Adaptive Design Project; coordinated a conference for 100+ participants.</div>
+          <div class="log-dates">Aug 2019 – Aug 2020</div>
+        </div>
+        <div class="log-row">
+          <div>
+            <div class="log-role">Junior Developer</div>
+            <div class="log-org">Ventech Solutions</div>
+          </div>
+          <div class="log-desc">Worked in agile sprint cycles building customer-facing applications — the hands-on developer background I still lean on with technical stakeholders.</div>
+          <div class="log-dates">Jan 2016 – Aug 2017</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="eyebrow">Toolkit</span>
+        <h2>Core competencies</h2>
+      </div>
+
+      <div class="skill-grid reveal">
+        <div class="skill-card">
+          <span class="cat">Partner Selection &amp; Onboarding</span>
+          <ul>
+            <li>Contract-to-access process design</li>
+            <li>Partner vetting</li>
+            <li>Onboarding execution</li>
+          </ul>
+        </div>
+        <div class="skill-card">
+          <span class="cat">Partner &amp; Account Relationship Management</span>
+          <ul>
+            <li>Renewals</li>
+            <li>Structured customer interviews</li>
+            <li>Satisfaction &amp; retention tracking</li>
+          </ul>
+        </div>
+        <div class="skill-card">
+          <span class="cat">Data Partnership Operations</span>
+          <ul>
+            <li>Partner-facing dashboards</li>
+            <li>Data availability &amp; completeness tracking</li>
+            <li>Technical triage with engineering</li>
+          </ul>
+        </div>
+        <div class="skill-card">
+          <span class="cat">Stakeholder Communication &amp; Reporting</span>
+          <ul>
+            <li>Funder reporting &amp; internal debriefs</li>
+            <li>Customer stories</li>
+            <li>Cross-functional research collaboration</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tool-tags reveal">
+        <span class="tool-tag">Asana</span>
+        <span class="tool-tag">Jira</span>
+        <span class="tool-tag">MS Project</span>
+        <span class="tool-tag">Smartsheet</span>
+        <span class="tool-tag">Airtable</span>
+        <span class="tool-tag">Salesforce</span>
+        <span class="tool-tag">Slack</span>
+        <span class="tool-tag">Google Workspace</span>
+        <span class="tool-tag">SQL</span>
+        <span class="tool-tag">Keynote</span>
+        <span class="tool-tag">Pages</span>
+        <span class="tool-tag">FileMaker</span>
+        <span class="tool-tag">Excel</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education">
+    <div class="wrap">
+      <div class="edu-grid reveal">
+        <div>
+          <h3>Education</h3>
+          <div class="edu-item">
+            <div class="deg">MPS, Interactive Telecommunications Program</div>
+            <div class="school">New York University · 2019</div>
+          </div>
+          <div class="edu-item">
+            <div class="deg">BS, Technology</div>
+            <div class="school">Kent State University · 2003</div>
+          </div>
+        </div>
+        <div>
+          <h3>Certifications</h3>
+          <ul class="cert-list">
+            <li>Scrum Master Certified (SMC)</li>
+            <li>PMP — In Progress</li>
+            <li>Project Management Professional Certificate</li>
+            <li>Digital Adoption Certification</li>
+            <li>Product-Led Certification</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="contact" id="contact">
+  <div class="wrap">
+    <span class="eyebrow">Get in touch</span>
+    <h2>Let's talk about your next partner.</h2>
+    <p class="lede">Whether you're building a partner program from scratch or need someone to own the ones you already have, I'd like to hear about it.</p>
+
+    <div class="contact-chips">
+      <a class="chip" href="mailto:kdmassey2@gmail.com">kdmassey2@gmail.com</a>
+      <a class="chip" href="tel:+66917036738">+66 91 703 6738</a>
+      <span class="chip static">LinkedIn — on request</span>
+    </div>
+
+    <div class="foot-line">
+      <span>Kellee Massey-Ruhlman</span>
+      <span>Partnership &amp; Data Partner Manager</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Theme toggle — remembers the visitor's choice; falls back to session-only if storage is blocked
+  const root = document.documentElement;
+  const themeToggle = document.getElementById('themeToggle');
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+  let userSetTheme = false;
+
+  function getStoredTheme(){
+    try { return localStorage.getItem('kmr-theme'); }
+    catch (e) { return null; }
+  }
+  function storeTheme(value){
+    try { localStorage.setItem('kmr-theme', value); }
+    catch (e) { /* storage unavailable — theme just won't persist this session */ }
+  }
+
+  function applyTheme(isDark){
+    root.setAttribute('data-theme', isDark ? 'dark' : 'light');
+    themeToggle.setAttribute('aria-pressed', String(isDark));
+    themeToggle.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
+  }
+
+  const storedTheme = getStoredTheme();
+  if (storedTheme === 'dark' || storedTheme === 'light') {
+    userSetTheme = true;
+    applyTheme(storedTheme === 'dark');
+  } else {
+    applyTheme(prefersDark.matches);
+  }
+
+  themeToggle.addEventListener('click', () => {
+    userSetTheme = true;
+    const isDark = root.getAttribute('data-theme') !== 'dark';
+    applyTheme(isDark);
+    storeTheme(isDark ? 'dark' : 'light');
+  });
+  prefersDark.addEventListener('change', (e) => {
+    if (!userSetTheme) applyTheme(e.matches);
+  });
+
+  // Case study expand/collapse
+  const caseToggle = document.getElementById('caseToggle');
+  const caseStudy = document.getElementById('caseStudy');
+  function setCaseOpen(open){
+    caseToggle.setAttribute('aria-expanded', String(open));
+    caseStudy.hidden = !open;
+    caseToggle.querySelector('span').textContent = open ? 'Hide the case study' : 'Read the full case study';
+  }
+  caseToggle.addEventListener('click', () => {
+    setCaseOpen(caseToggle.getAttribute('aria-expanded') !== 'true');
+  });
+
+  // Hero button scrolls to the pipeline and opens the case study directly
+  const heroCaseLink = document.getElementById('heroCaseLink');
+  heroCaseLink.addEventListener('click', (e) => {
+    e.preventDefault();
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    document.getElementById('pipeline').scrollIntoView({ behavior: reduced ? 'auto' : 'smooth' });
+    setCaseOpen(true);
+  });
+
+  // Mobile nav toggle
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+  navToggle.addEventListener('click', () => {
+    const open = navLinks.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    navLinks.classList.remove('open');
+    navToggle.setAttribute('aria-expanded', 'false');
+  }));
+
+  // Scroll reveal
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const revealEls = document.querySelectorAll('.reveal');
+  if (prefersReduced || !('IntersectionObserver' in window)) {
+    revealEls.forEach(el => el.classList.add('is-visible'));
+  } else {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    revealEls.forEach(el => io.observe(el));
+  }
+</script>
+
+</body>
+</html>
